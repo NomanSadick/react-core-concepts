@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,6 +15,8 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>I am a React Person </h1>
+        <Counter></Counter>
+
         <ul>
         {nayoks.map(nayo =><li>{nayo}</li>)}
         {
@@ -22,18 +24,34 @@ function App() {
         }
         </ul>
         {
-                products.map(product =><Product ></Product>)
+                products.map(pd =><Product product={pd}></Product>)
         }
 
 
         <Product product={products[0]}></Product>
         <Product product={products[1]}></Product>
+         
         <Person name="Rajjak" job="Minister"></Person>
         <Person name="Samir" job="Business"></Person>
       </header>
     </div>
   )
 }
+
+function Counter(){
+  const [count, setCount] = useState(10);
+  const handleIncrease= () => setCount(count + 1);
+  const handleDcrease= () => setCount(count - 1);
+  
+  return(
+    <div>
+      <h1>Coun: {count}</h1>
+      <button onClick={handleDcrease}>Dcrease</button>
+      <button onClick={handleIncrease}>Increase</button>
+    </div>
+  )
+}
+
 function Product(props){
   const styleProduct={
     border:'2px solid gray',
