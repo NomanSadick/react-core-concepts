@@ -28,12 +28,6 @@ function App() {
         {
                 products.map(pd =><Product product={pd}></Product>)
         }
-
-
-        <Product product={products[0]}></Product>
-        <Product product={products[1]}></Product>
-
-        
          
         <Person name="Rajjak" job="Minister"></Person>
         <Person name="Samir" job="Business"></Person>
@@ -85,7 +79,7 @@ function Product(props){
   }
   console.log(props)
   return(
-    <div style={styleProduct}>
+    <div style={styleProduct} >
       <h2>{props.product.name} </h2>
       <h1>{props.product.price}</h1>
       <button>Buy Now</button>
